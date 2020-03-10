@@ -1,6 +1,7 @@
 package com.pdolecinski.myapplication.di.module
 
 import com.pdolecinski.myapplication.constant.RestConstant
+import com.pdolecinski.myapplication.data.rest.RetrofitRepository
 import com.pdolecinski.myapplication.data.rest.RetrofitService
 import dagger.Module
 import dagger.Provides
@@ -33,5 +34,11 @@ class RestModule {
     @Singleton
     fun provideRestService(retrofit: Retrofit): RetrofitService {
         return retrofit.create(RetrofitService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRetrofitRepository(retrofitService: RetrofitService): RetrofitRepository{
+        return RetrofitRepository(retrofitService)
     }
 }
