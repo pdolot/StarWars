@@ -1,7 +1,8 @@
-package com.pdolecinski.myapplication
+package com.pdolecinski.myapplication.content.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.pdolecinski.myapplication.R
 
 class MainActivity : AppCompatActivity() {
 
