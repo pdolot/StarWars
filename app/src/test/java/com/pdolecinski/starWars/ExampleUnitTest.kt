@@ -1,4 +1,4 @@
-package com.pdolecinski.myapplication
+package com.pdolecinski.starWars
 
 import org.junit.Test
 

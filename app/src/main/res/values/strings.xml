@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">StarWars</string>
+    <string name="release_date">Release date:</string>
+    <string name="star_wars_films">Star Wars films:</string>
+    <string name="fetching_data">Fetching data...</string>
 </resources>

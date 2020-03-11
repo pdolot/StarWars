@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colors" format="reference"/>
+    <attr name="backgroundColor" format="color"/>
+    <attr name="color" format="color"/>
+    <attr name="strokeWidth" format="dimension"/>
+    <attr name="textSize" format="dimension"/>
+    <attr name="textColor" format="color"/>
+
+    <declare-styleable name="CircleProgressBars">
+        <attr name="count" format="integer"/>
+        <attr name="colors"/>
+        <attr name="bgColors" format="reference"/>
+        <attr name="progresses" format="reference"/>
+        <attr name="progressesLabels" format="reference"/>
+        <attr name="textEnabled" format="boolean"/>
+        <attr name="spaceBetween" format="dimension"/>
+        <attr name="maxProgressAngle" format="integer"/>
+        <attr name="backgroundEnabled" format="boolean"/>
+        <attr name="strokeWidth"/>
+        <attr name="strokeCap" format="enum">
+            <enum name="ROUND" value="0"/>
+            <enum name="BUTT" value="1"/>
+            <enum name="SQUARE" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

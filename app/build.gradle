@@ -12,7 +12,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.pdolecinski.myapplication"
+        applicationId "com.pdolecinski.starWars"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -25,15 +25,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
-def nav_version = "2.3.0-alpha02"
-def archLifecycleVersion = '2.2.0-rc02'
+def nav_version = "2.3.0-alpha03"
+def archLifecycleVersion = '2.2.0'
 def androidxArchVersion = '2.1.0'
 def retrofit_version = "2.6.1"
 def dagger_version = "2.25.2"
 def rxkotlin_version = "2.4.0"
 def rxandroid_version = "2.1.1"
+def room_version = "2.2.4"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -70,4 +75,11 @@ dependencies {
     // RxJava
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
     implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="colors">
+        <item>#ffe919</item>
+    </array>
+
+    <array name="bgColors">
+        <item>#FA242424</item>
+    </array>
+
+    <array name="progresses">
+        <item>0.5</item>
+    </array>
+
+    <array name="emptyProgresses">
+        <item>0.0</item>
+    </array>
+
+    <array name="progressLabel">
+        <item>FIRST</item>
+    </array>
+
+</resources>
