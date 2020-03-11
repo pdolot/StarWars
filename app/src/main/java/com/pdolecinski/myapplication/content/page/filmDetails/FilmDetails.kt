@@ -13,6 +13,7 @@ import com.pdolecinski.myapplication.base.BaseFragment
 import kotlinx.android.synthetic.main.page_film_details.*
 
 class FilmDetails : BaseFragment() {
+
     private val viewModel by lazy { FilmDetailsViewModel() }
     private val adapter by lazy { PeopleAdapter() }
     private val args: FilmDetailsArgs by navArgs()
@@ -29,10 +30,14 @@ class FilmDetails : BaseFragment() {
         setAdapter()
 
         viewModel.filmDao.getFilmById(args.filmId).observe(viewLifecycleOwner, Observer {
-            it?.let {film ->
-                viewModel.personDao.getPeopleByIds(film.characters_ids).observe(viewLifecycleOwner, Observer {
-                    adapter.setData(it)
-                })
+
+            filmTitle.text = it?.title
+
+            it?.let { film ->
+                viewModel.personDao.getPeopleByIds(film.characters_ids)
+                    .observe(viewLifecycleOwner, Observer {
+                        adapter.setData(it)
+                    })
             }
         })
     }

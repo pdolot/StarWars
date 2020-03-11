@@ -202,9 +202,9 @@ class CircleProgressBars @JvmOverloads constructor(
 
         var progress = sweepAngle.toFloat() / maxProgressAngle
 
-        if (progress > 1.0f && angle > 90){
+        if (progress > 1.0f && angle > 90) {
             progress = 0f
-        }else if (progress > 1.0f && angle < 90){
+        } else if (progress > 1.0f && angle < 90) {
             progress = 1f
         }
 

@@ -32,7 +32,7 @@ class FilmsAdapter : RecyclerView.Adapter<FilmsAdapter.ViewHolder>() {
         val item = items?.get(position)
         holder.itemView.apply {
             title.text = item?.title
-            release_date.text = item?.release_date
+            releaseDate.text = item?.release_date
 
             showDetails.setOnClickListener {
                 item?.episode_id?.let {id ->

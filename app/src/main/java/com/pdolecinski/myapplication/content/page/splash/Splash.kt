@@ -23,14 +23,14 @@ class Splash : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.callResult.observe(viewLifecycleOwner, Observer {
+        viewModel.isInProgress.observe(viewLifecycleOwner, Observer {
             if (it == false) {
                 findNavController().navigate(SplashDirections.actionSplashToFilms())
             }
         })
 
         viewModel.requestCounter.observe(viewLifecycleOwner, Observer {
-            progressBar.setProgress(it.toFloat()/10f, 0)
+            progressBar.setProgress(it.toFloat() / 10f, 0)
         })
     }
 }

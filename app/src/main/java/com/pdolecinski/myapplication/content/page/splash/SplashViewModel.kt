@@ -33,13 +33,14 @@ class SplashViewModel : BaseViewModel() {
     var requestCounter = MutableLiveData(0)
 
     val films = MutableLiveData<List<Film>>()
-    val callResult = MutableLiveData<Boolean?>()
+    val isInProgress = MutableLiveData<Boolean?>()
 
-    private fun fetchFilms(){
+    private fun fetchFilms() {
         rxDisposer.add(retrofitRepository.getAllFilms()
             .subscribeBy(
                 onError = {
-                    Log.e("FilmsViewModel", "Failed to fetch films: ${it.message}")
+                    requestCounter.postValue(requestCounter.value?.plus(1))
+                    Log.e("SplashViewModel", "Failed to fetch films: ${it.message}")
                     fetchPersons(1)
                 },
                 onSuccess = {
@@ -51,19 +52,27 @@ class SplashViewModel : BaseViewModel() {
     }
 
 
-    private fun fetchPersons(page: Int){
+    private fun fetchPersons(page: Int) {
         rxDisposer.add(retrofitRepository.fetchPeople(page)
             .subscribeBy(
                 onError = {
-                    Log.e("FilmsViewModel", "Failed to fetch people: ${it.message}")
-                    callResult.postValue(false)
+                    requestCounter.postValue(
+                        requestCounter.value?.plus(
+                            10 - (requestCounter.value ?: 0)
+                        )
+                    )
+                    Log.e("SplashViewModel", "Failed to fetch people: ${it.message}")
+                    isInProgress.postValue(false)
                 },
                 onSuccess = {
                     requestCounter.postValue(requestCounter.value?.plus(1))
                     insertPeopleToDatabase(it.results)
-                    it.next?.replace("https://swapi.co/api/people/?page=","")?.toInt()?.let { p ->
+                    it.next?.replace(
+                        "https://swapi.co/api/people/?page=",
+                        ""
+                    )?.toInt()?.let { p ->
                         fetchPersons(p)
-                    } ?: callResult.postValue(false)
+                    } ?: isInProgress.postValue(false)
                 }
             ))
     }
