@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/films"
-        android:name="com.pdolecinski.myapplication.content.page.films.Films"
+        android:name="com.pdolecinski.starWars.content.page.films.Films"
         android:label="Films" >
         <action
             android:id="@+id/action_films_to_filmDetails"
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/filmDetails"
-        android:name="com.pdolecinski.myapplication.content.page.filmDetails.FilmDetails"
+        android:name="com.pdolecinski.starWars.content.page.filmDetails.FilmDetails"
         android:label="FilmDetails" >
         <argument
             android:name="film_id"
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/splash"
-        android:name="com.pdolecinski.myapplication.content.page.splash.Splash"
+        android:name="com.pdolecinski.starWars.content.page.splash.Splash"
         android:label="Splash" >
         <action
             android:id="@+id/action_splash_to_films"
